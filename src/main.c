@@ -12,5 +12,10 @@ int main(int argc, const char *argv[]) {
 
     window = SDL_CreateWindow("Hello, SDL2!", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_OPENGL);
 
+    SDL_Delay( 3000 );
+
+    SDL_DestroyWindow( window );
+    SDL_Quit();
+
     return 0;
 }
