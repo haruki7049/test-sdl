@@ -1,17 +1,23 @@
-{ pkgs ? import <nixpkgs> { }
-, lib ? pkgs.lib
-, stdenv ? pkgs.clangStdenv
+{
+  lib,
+  stdenv,
+
+  # Deps
+  SDL2,
+
+  # Dep tools
+  patchelf,
 }:
 
 stdenv.mkDerivation rec {
   name = "test-sdl";
-  src = ./.;
+  src = lib.cleanSource ./.;
 
-  buildInputs = with pkgs; [
+  buildInputs = [
     SDL2
   ];
 
-  nativeBuildInputs = with pkgs; [
+  nativeBuildInputs = [
     patchelf
   ];
 
